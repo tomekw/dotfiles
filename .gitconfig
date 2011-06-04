@@ -1,0 +1,17 @@
+[user]
+	name = Tomek Wałkuski
+	email = ja@jestem.tw
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	lg = log -p
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[github]
+	user = tomekw
+	token = ****************
