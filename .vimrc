@@ -1,11 +1,15 @@
-filetype on
-filetype indent on
-
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set autoread
 set autoindent
 set number
 set showmatch
 set smarttab
+set laststatus=2
+set encoding=utf-8
+set ruler
 
 let mapleader=','
 let g:mapleader=','
