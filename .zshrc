@@ -6,8 +6,8 @@ prompt="%{$green%}%n@%m %{$reset%}[%{$cyan%}%~%{$reset%}] \$ "
 autoload -U compinit
 compinit -C
 
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=4096
+SAVEHIST=4096
 HISTFILE=~/.history
 
 RUBY_HEAP_MIN_SLOTS=1000000
@@ -21,4 +21,9 @@ RUBY_GC_MALLOC_LIMIT=1000000000
 # Find in files, usage: fif PATH STRING
 function fif() {
   find $1 | xargs grep "$2" -sl
+}
+
+# Restore JT dump, usage: jt_restore PATH
+function jt_restore() {
+  pg_restore --verbose --clean --no-acl --no-owner -U jobandtalent -d jobandtalent $1
 }
