@@ -27,3 +27,14 @@ function fif() {
 function jt_restore() {
   pg_restore --verbose --clean --no-acl --no-owner -U jobandtalent -d jobandtalent $1
 }
+
+# Execute specific commands with bundle exec
+function be() {
+  if [[ -a Gemfile ]]; then
+    bundle exec $*
+  else
+    command $*
+  fi
+}
+
+alias rake='be rake'
