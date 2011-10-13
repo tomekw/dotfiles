@@ -25,7 +25,7 @@ function fif() {
 
 # Restore JT dump, usage: jt_restore PATH
 function jt_restore() {
-  pg_restore --verbose --clean --no-acl --no-owner -U jobandtalent -d jobandtalent $1
+  pg_restore -j 2 --verbose --clean --no-acl --no-owner -U jobandtalent -d jobandtalent $1
 }
 
 # Execute specific commands with bundle exec
