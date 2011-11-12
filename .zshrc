@@ -38,3 +38,4 @@ function be() {
 }
 
 alias rake='be rake'
+alias ls='ls -G'
