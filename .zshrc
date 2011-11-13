@@ -6,6 +6,8 @@ prompt="%{$green%}%n@%m %{$reset%}[%{$cyan%}%~%{$reset%}] \$ "
 autoload -U compinit
 compinit -C
 
+PATH=/usr/local/bin:$PATH
+
 HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.history
