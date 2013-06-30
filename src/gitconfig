@@ -12,6 +12,6 @@
 	diff = auto
 	interactive = auto
 	status = auto
-[github]
-	user = tomekw
-	token = ****************
+[core]
+	excludesfile = /Users/tomek/.gitignore
+	editor = /usr/bin/vim
