@@ -18,4 +18,19 @@ Kropka::Recipe.new do
     source "src/gitignore"
     target "#{ENV["HOME"]}/.gitignore"
   end
+
+  file do
+    source "src/vimrc.before"
+    target "#{ENV["HOME"]}/.vimrc.before"
+  end
+
+  file do
+    source "src/vimrc.after"
+    target "#{ENV["HOME"]}/.vimrc.after"
+  end
+
+  file do
+    source "src/gvimrc.after"
+    target "#{ENV["HOME"]}/.gvimrc.after"
+  end
 end

@@ -1,0 +1,4 @@
+let mapleader                   = ','
+let g:mapleader                 = ','
+let vimclojure#HighlightBuiltin = 1
+let vimclojure#ParenRainbow     = 1
