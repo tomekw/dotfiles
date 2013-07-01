@@ -1,11 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    kropka (0.0.1)
+    kropka (0.1.0)
       thor
     thor (0.18.1)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
