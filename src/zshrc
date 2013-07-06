@@ -7,6 +7,7 @@ plugins=(brew bundler gem git github heroku osx rails3 ruby)
 
 ARCHFLAGS="-arch x86_64"
 EDITOR="mvim"
+JAVA_HOME=$(/usr/libexec/java_home)
 
 source $ZSH/oh-my-zsh.sh
 
