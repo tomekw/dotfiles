@@ -1,4 +1,8 @@
 Kropka::Recipe.new do
+  directory do
+    name "#{ENV["HOME"]}/.emacs.d"
+  end
+
   file do
     source "src/zshrc"
     target "#{ENV["HOME"]}/.zshrc"
@@ -37,5 +41,10 @@ Kropka::Recipe.new do
   file do
     source "src/ackrc"
     target "#{ENV["HOME"]}/.ackrc"
+  end
+
+  file do
+    source "src/init.el"
+    target "#{ENV["HOME"]}/.emacs.d/init.el"
   end
 end

@@ -1,8 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    kropka (0.1.0)
+    kropka (0.1.1)
+      rainbow
       thor
+    rainbow (1.99.1)
     thor (0.18.1)
 
 PLATFORMS

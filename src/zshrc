@@ -3,7 +3,7 @@ ZSH_THEME="clean"
 
 PATH=/usr/local/share/npm/bin:/usr/local/heroku/bin:/usr/local/bin:$PATH
 
-plugins=(brew bundler gem git github heroku osx rails3 ruby)
+plugins=(brew bundler gem git github heroku osx rails ruby)
 
 ARCHFLAGS="-arch x86_64"
 EDITOR="mvim"
@@ -23,5 +23,7 @@ function fif() {
 function h { heroku $argv[0,-2] --app $argv[-1] }
 function hp { h $argv production }
 function hs { h $argv staging }
+
+alias emacs='/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs &'
 
 cotd
