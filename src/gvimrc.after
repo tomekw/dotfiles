@@ -1,4 +1,6 @@
-colorscheme railscasts2
+set background=dark
+colorscheme base16-default
+
 set transparency=10
 
 map <Leader>n :NERDTreeToggle<CR>

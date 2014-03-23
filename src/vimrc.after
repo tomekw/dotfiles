@@ -1,4 +1,5 @@
-colorscheme railscasts2
+set background=dark
+colorscheme base16-default
 
 set gfn=Monaco:h12
 

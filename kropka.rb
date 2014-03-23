@@ -3,6 +3,10 @@ Kropka::Recipe.new do
     name "#{ENV["HOME"]}/.emacs.d"
   end
 
+  directory do
+    name "#{ENV["HOME"]}/.janus"
+  end
+
   file do
     source "src/zshrc"
     target "#{ENV["HOME"]}/.zshrc"
@@ -46,5 +50,10 @@ Kropka::Recipe.new do
   file do
     source "src/init.el"
     target "#{ENV["HOME"]}/.emacs.d/init.el"
+  end
+
+  file do
+    source "src/janus_gitmodules"
+    target "#{ENV["HOME"]}/.janus/.gitmodules"
   end
 end
