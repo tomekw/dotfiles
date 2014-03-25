@@ -18,3 +18,10 @@ function! SearchDash()
   redraw!
 endfunction
 map <leader>d :call SearchDash()<CR>
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <leader>a: :Tabularize /:\zs/l0l1<cr>
+  vmap <leader>a: :Tabularize /:\zs/l0l1<cr>
+endif
