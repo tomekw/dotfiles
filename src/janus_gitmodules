@@ -1,15 +1,18 @@
 [submodule "paredit.vim"]
 	path = paredit.vim
-	url  = git@github.com:vim-scripts/paredit.vim.git
+	url = git@github.com:vim-scripts/paredit.vim.git
 [submodule "vim-fireplace"]
 	path = vim-fireplace
-	url  = git@github.com:tpope/vim-fireplace.git
+	url = git@github.com:tpope/vim-fireplace.git
 [submodule "vim-niji"]
 	path = vim-niji
-	url  = git@github.com:amdt/vim-niji.git
+	url = git@github.com:amdt/vim-niji.git
 [submodule "tabular"]
 	path = tabular
-	url  = git@github.com:godlygeek/tabular.git
+	url = git@github.com:godlygeek/tabular.git
 [submodule "base16-vim"]
 	path = base16-vim
-	url  = git@github.com:chriskempson/base16-vim.git
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "html5.vim"]
+	path = html5.vim
+	url = git@github.com:othree/html5.vim.git
