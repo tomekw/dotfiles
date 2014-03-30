@@ -7,6 +7,10 @@ Kropka::Recipe.new do
     name "#{ENV["HOME"]}/.janus"
   end
 
+  directory do
+    name "#{ENV["HOME"]}/.lein"
+  end
+
   file do
     source "src/zshrc"
     target "#{ENV["HOME"]}/.zshrc"
@@ -55,5 +59,10 @@ Kropka::Recipe.new do
   file do
     source "src/janus_gitmodules"
     target "#{ENV["HOME"]}/.janus/.gitmodules"
+  end
+
+  file do
+    source "src/lein_profiles.clj"
+    target "#{ENV["HOME"]}/.lein/profiles.clj"
   end
 end
