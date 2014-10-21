@@ -6,7 +6,7 @@
 (package-initialize)
 
 (setq package-list
-      '(clojure-mode highlight-parentheses rainbow-delimiters
+      '(clojure-mode highlight-parentheses magit rainbow-delimiters
 		     smartparens ruby-mode solarized-theme))
 
 (dolist (package package-list)
@@ -36,3 +36,4 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-x g") 'magit-status)
