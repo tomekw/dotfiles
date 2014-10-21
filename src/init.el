@@ -14,17 +14,17 @@
     (package-refresh-contents)
     (package-install package)))
 
-; color-theme
+;; color-theme
 (load-theme 'solarized-dark t)
 
-; smartparens
+;; smartparens
 (smartparens-global-mode t)
 
 ;; highlight-parentheses
 (define-globalized-minor-mode global-highlight-parentheses-mode
-                              highlight-parentheses-mode
-                              (lambda ()
-                                (highlight-parentheses-mode t)))
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
 ;; rainbow-delimiters
