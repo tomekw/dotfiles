@@ -7,8 +7,8 @@
 
 (setq package-list
       '(ag clojure-mode company highlight-parentheses
-           magit rainbow-delimiters smartparens ruby-mode
-           solarized-theme))
+           magit neotree rainbow-delimiters smartparens
+           ruby-mode solarized-theme))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -49,3 +49,4 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "M-n") 'neotree-toggle)
