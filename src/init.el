@@ -7,8 +7,8 @@
 
 (setq package-list
       '(clojure-mode company highlight-parentheses
-		     magit rainbow-delimiters smartparens ruby-mode
-		     solarized-theme))
+                     magit rainbow-delimiters smartparens ruby-mode
+                     solarized-theme))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -37,6 +37,7 @@
 ;; various
 (global-linum-mode t)
 (tool-bar-mode -1)
+(setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
