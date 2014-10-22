@@ -6,9 +6,9 @@
 (package-initialize)
 
 (setq package-list
-      '(clojure-mode company highlight-parentheses
-                     magit rainbow-delimiters smartparens ruby-mode
-                     solarized-theme))
+      '(ag clojure-mode company highlight-parentheses
+           magit rainbow-delimiters smartparens ruby-mode
+           solarized-theme))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -17,6 +17,9 @@
 
 ;; color-theme
 (load-theme 'solarized-dark t)
+
+;; ag
+(setq ag-highlight-search t)
 
 ;; autocomplete
 (add-hook 'after-init-hook 'global-company-mode)
