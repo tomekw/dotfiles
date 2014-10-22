@@ -8,7 +8,7 @@
 (setq package-list
       '(ag clojure-mode company fill-column-indicator highlight-parentheses
            magit neotree rainbow-delimiters smartparens
-           ruby-mode solarized-theme))
+           ruby-mode solarized-theme whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -41,6 +41,9 @@
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 (setq fci-rule-column 80)
 (setq fci-rule-color "red")
+
+;; cleanup trailing whitespaces
+(global-whitespace-cleanup-mode t)
 
 ;; various
 (global-linum-mode t)
