@@ -15,8 +15,9 @@
     (package-refresh-contents)
     (package-install package)))
 
-;; color-theme
+;; color theme and font
 (load-theme 'solarized-dark t)
+(set-frame-font "Monaco 12")
 
 ;; ag
 (setq ag-highlight-search t)
