@@ -8,7 +8,7 @@
 (setq package-list
       '(ag clojure-mode company fill-column-indicator highlight-parentheses
            magit neotree rainbow-delimiters smartparens
-           ruby-mode solarized-theme whitespace-cleanup-mode))
+           ruby-mode sane-term solarized-theme whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -45,6 +45,10 @@
 
 ;; cleanup trailing whitespaces
 (global-whitespace-cleanup-mode t)
+
+;; terminal support
+(setq sane-term-shell-command "/usr/local/bin/zsh")
+(global-set-key (kbd "M-t") 'sane-term)
 
 ;; various
 (global-linum-mode t)
