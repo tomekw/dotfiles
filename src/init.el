@@ -1,13 +1,14 @@
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
 (setq package-list
-      '(clojure-mode highlight-parentheses magit rainbow-delimiters
-		     smartparens ruby-mode solarized-theme))
+      '(clojure-mode company highlight-parentheses
+		     magit rainbow-delimiters smartparens ruby-mode
+		     solarized-theme))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -16,6 +17,9 @@
 
 ;; color-theme
 (load-theme 'solarized-dark t)
+
+;; autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; smartparens
 (smartparens-global-mode t)
