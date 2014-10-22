@@ -6,7 +6,7 @@
 (package-initialize)
 
 (setq package-list
-      '(ag clojure-mode company highlight-parentheses
+      '(ag clojure-mode company fill-column-indicator highlight-parentheses
            magit neotree rainbow-delimiters smartparens
            ruby-mode solarized-theme))
 
@@ -36,6 +36,11 @@
 
 ;; rainbow-delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; red line after 80 characters
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+(setq fci-rule-column 80)
+(setq fci-rule-color "red")
 
 ;; various
 (global-linum-mode t)
