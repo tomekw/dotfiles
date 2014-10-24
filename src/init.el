@@ -52,6 +52,7 @@
 (global-set-key (kbd "M-t") 'sane-term)
 
 ;; various
+(setq auto-save-default nil)
 (global-linum-mode t)
 (tool-bar-mode -1)
 (setq-default indent-tabs-mode nil)
