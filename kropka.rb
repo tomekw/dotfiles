@@ -1,5 +1,9 @@
 Kropka::Recipe.new do
   directory do
+    name "#{ENV["HOME"]}/bin"
+  end
+
+  directory do
     name "#{ENV["HOME"]}/.emacs.d"
   end
 
@@ -9,6 +13,11 @@ Kropka::Recipe.new do
 
   directory do
     name "#{ENV["HOME"]}/.lein"
+  end
+
+  file do
+    source "src/emacs"
+    target "#{ENV["HOME"]}/emacs"
   end
 
   file do

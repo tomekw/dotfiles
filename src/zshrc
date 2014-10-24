@@ -25,6 +25,6 @@ function h { heroku $argv[0,-2] --app $argv[-1] }
 function hp { h $argv production }
 function hs { h $argv staging }
 
-alias emacs='/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs &'
+alias emacs='~/bin/emacs &'
 
 cotd
