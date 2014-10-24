@@ -6,17 +6,18 @@
 (package-initialize)
 
 (setq package-list
-      '(ag clojure-mode company fill-column-indicator highlight-parentheses
+      '(ag clojure-mode color-theme-sanityinc-tomorrow company
+           fill-column-indicator highlight-parentheses
            magit neotree rainbow-delimiters smartparens
-           ruby-mode sane-term solarized-theme whitespace-cleanup-mode))
+           ruby-mode sane-term whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-refresh-contents)
     (package-install package)))
 
-;; color theme and font
-(load-theme 'solarized-dark t)
+;; color theme and font)
+(load-theme 'sanityinc-tomorrow-night t)
 (set-frame-font "Monaco 12")
 
 ;; ag
