@@ -17,7 +17,7 @@ Kropka::Recipe.new do
 
   file do
     source "src/emacs"
-    target "#{ENV["HOME"]}/emacs"
+    target "#{ENV["HOME"]}/bin/emacs"
   end
 
   file do
