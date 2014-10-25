@@ -9,7 +9,7 @@
       '(ag clojure-mode color-theme-sanityinc-tomorrow company
            fill-column-indicator flx-ido highlight-parentheses
            magit neotree projectile rainbow-delimiters smartparens
-           ruby-mode sane-term whitespace-cleanup-mode))
+           ruby-mode sane-term web-mode whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
