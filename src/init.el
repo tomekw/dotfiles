@@ -28,6 +28,7 @@
 
 ;; smartparens
 (smartparens-global-mode t)
+(require 'smartparens-config)
 
 ;; highlight-parentheses
 (define-globalized-minor-mode global-highlight-parentheses-mode
