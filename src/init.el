@@ -6,10 +6,10 @@
 (package-initialize)
 
 (setq package-list
-      '(ag clojure-mode color-theme-sanityinc-tomorrow company
-           fill-column-indicator flx-ido highlight-parentheses
-           magit neotree projectile rainbow-delimiters smartparens
-           ruby-mode sane-term web-mode whitespace-cleanup-mode))
+      '(ag clojure-mode company fill-column-indicator flx-ido
+           highlight-parentheses magit monokai-theme neotree projectile
+           rainbow-delimiters smartparens ruby-mode sane-term web-mode
+           whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -17,7 +17,7 @@
     (package-install package)))
 
 ;; color theme and font)
-(load-theme 'sanityinc-tomorrow-night t)
+(load-theme 'monokai t)
 (set-frame-font "Monaco 12")
 
 ;; ag
