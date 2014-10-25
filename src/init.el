@@ -7,8 +7,8 @@
 
 (setq package-list
       '(ag clojure-mode color-theme-sanityinc-tomorrow company
-           fill-column-indicator highlight-parentheses
-           magit neotree rainbow-delimiters smartparens
+           fill-column-indicator flx-ido highlight-parentheses
+           magit neotree projectile rainbow-delimiters smartparens
            ruby-mode sane-term whitespace-cleanup-mode))
 
 (dolist (package package-list)
@@ -36,6 +36,13 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
+;; projectile
+(setq inhibit-startup-screen t)
+(projectile-global-mode)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+
 ;; rainbow-delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
@@ -52,8 +59,13 @@
 (global-set-key (kbd "M-t") 'sane-term)
 
 ;; various
+(setq initial-scratch-message nil)
+(setq make-backup-files nil)
 (setq auto-save-default nil)
 (global-linum-mode t)
+(line-number-mode 1)
+(column-number-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
