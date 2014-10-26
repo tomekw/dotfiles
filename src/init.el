@@ -76,7 +76,7 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "M-g") 'magit-status)
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
