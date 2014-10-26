@@ -27,4 +27,4 @@ function hs { h $argv staging }
 
 alias emacs='~/bin/emacs &'
 
-cotd
+if which cotd > /dev/null; then cotd; fi
