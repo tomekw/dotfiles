@@ -69,6 +69,7 @@
 (setq auto-save-default nil)
 (global-linum-mode t)
 (line-number-mode 1)
+(setq linum-format "%5d ")
 (column-number-mode 1)
 (scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
