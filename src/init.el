@@ -70,6 +70,7 @@
 (global-linum-mode t)
 (line-number-mode 1)
 (column-number-mode 1)
+(scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
 (setq-default indent-tabs-mode nil)
