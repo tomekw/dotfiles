@@ -10,10 +10,25 @@
 (package-initialize)
 
 (setq package-list
-      '(ag cider clojure-mode company fill-column-indicator flx-ido
-           highlight-parentheses magit monokai-theme neotree projectile
-           rainbow-delimiters rspec-mode smartparens ruby-mode sane-term
-           web-mode whitespace-cleanup-mode))
+      '(ag
+        cider
+        clojure-mode
+        company
+        fill-column-indicator
+        flx-ido
+        highlight-parentheses
+        magit
+        monokai-theme
+        neotree
+        projectile
+        projectile-rails
+        rainbow-delimiters
+        rspec-mode
+        ruby-mode
+        smartparens
+        sane-term
+        web-mode
+        whitespace-cleanup-mode))
 
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -48,6 +63,7 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
 
 ;; rainbow-delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
