@@ -18,6 +18,7 @@
         flx-ido
         highlight-parentheses
         magit
+        markdown-mode
         monokai-theme
         neotree
         projectile
