@@ -17,6 +17,7 @@
         fill-column-indicator
         flx-ido
         highlight-parentheses
+        js2-mode
         magit
         markdown-mode
         monokai-theme
@@ -57,6 +58,9 @@
   (lambda ()
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
+
+;; js2-mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; projectile
 (setq inhibit-startup-screen t)
