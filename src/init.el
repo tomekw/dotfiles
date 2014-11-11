@@ -1,12 +1,8 @@
 (require 'package)
 
-;; cider
-(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
-                         ("melpa-stable" . "http://stable.melpa.org/packages/")))
+                         ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 
 (setq package-list
