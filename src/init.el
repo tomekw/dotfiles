@@ -12,6 +12,7 @@
         company
         fill-column-indicator
         flx-ido
+        go-mode
         highlight-parentheses
         js2-mode
         magit
