@@ -44,6 +44,19 @@
 ;; autocomplete
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; go-mode
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setenv "PATH" (concat "/user/local/opt/go/libexec/bin:" (getenv "HOME") "/depot/go:" (getenv "PATH")))
+            (setenv "GOPATH" (concat (getenv "HOME") "/depot/go"))
+            (push (concat (getenv "GOPATH") "/bin") exec-path)
+            (setq gofmt-command "goimports")
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            (setq tab-width 2)
+            (setq indent-tabs-mode 1)
+            (set (make-local-variable 'compile-command)
+                 "go vet && go test -cover -v && go build -v")))
+
 ;; smartparens
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
