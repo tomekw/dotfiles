@@ -36,10 +36,6 @@
     (package-refresh-contents)
     (package-install package)))
 
-;; color theme and font)
-(load-theme 'monokai t)
-(set-frame-font "Monaco 12")
-
 ;; ag
 (setq ag-highlight-search t)
 
@@ -67,11 +63,6 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
-;; smartparens
-(smartparens-global-mode t)
-(show-smartparens-global-mode t)
-(require 'smartparens-config)
-
 ;; highlight-parentheses
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
@@ -81,6 +72,12 @@
 
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; neotree
+(global-set-key (kbd "M-n") 'neotree-toggle)
 
 ;; projectile
 (setq inhibit-startup-screen t)
@@ -98,14 +95,19 @@
 (setq fci-rule-column 80)
 (setq fci-rule-color "red")
 
-;; cleanup trailing whitespaces
-(global-whitespace-cleanup-mode t)
+;; smartparens
+(smartparens-global-mode t)
+(show-smartparens-global-mode t)
+(require 'smartparens-config)
 
 ;; terminal support
 (setq sane-term-shell-command "/usr/local/bin/zsh")
 (global-set-key (kbd "M-t") 'sane-term)
 
 ;; various
+(load-theme 'monokai t)
+(set-frame-font "Monaco 12")
+
 (setq initial-scratch-message nil)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -119,14 +121,13 @@
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
+(global-whitespace-cleanup-mode t)
 
 (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
-(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
-(global-set-key (kbd "M-n") 'neotree-toggle)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
