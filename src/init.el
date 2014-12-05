@@ -104,6 +104,9 @@
 (setq sane-term-shell-command "/usr/local/bin/zsh")
 (global-set-key (kbd "M-t") 'sane-term)
 
+;; web-mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+
 ;; various
 (load-theme 'monokai t)
 (set-frame-font "Monaco 12")
