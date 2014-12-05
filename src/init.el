@@ -28,6 +28,7 @@
         ruby-mode
         smartparens
         sane-term
+        scss-mode
         web-mode
         whitespace-cleanup-mode))
 
@@ -94,6 +95,10 @@
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 (setq fci-rule-column 80)
 (setq fci-rule-color "red")
+
+;; scss-mode
+(setq scss-compile-at-save nil)
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
 ;; smartparens
 (smartparens-global-mode t)
