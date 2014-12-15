@@ -96,6 +96,9 @@
 (setq fci-rule-column 80)
 (setq fci-rule-color "red")
 
+;; rspec-mode
+(setenv "PATH" (concat "/Users/tomek/.rbenv/shims:" (getenv "PATH")))
+
 ;; scss-mode
 (setq scss-compile-at-save nil)
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
