@@ -37,6 +37,14 @@
     (package-refresh-contents)
     (package-install package)))
 
+;; env variables
+(let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+        (append
+         (split-string-and-unquote path ":")
+         exec-path)))
+
 ;; ag
 (setq ag-highlight-search t)
 
@@ -59,10 +67,10 @@
 ;; helm
 (global-set-key (kbd "M-x") 'helm-M-x)
 (helm-mode 1)
-(defalias 'ag 'helm-ag)
 (defun projectile-helm-ag ()
   (interactive)
   (helm-ag (projectile-project-root)))
+(defalias 'ag 'projectile-helm-ag)
 
 ;; highlight-parentheses
 (define-globalized-minor-mode global-highlight-parentheses-mode
@@ -95,9 +103,6 @@
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 (setq fci-rule-column 80)
 (setq fci-rule-color "red")
-
-;; rspec-mode
-(setenv "PATH" (concat "/Users/tomek/.rbenv/shims:" (getenv "PATH")))
 
 ;; scss-mode
 (setq scss-compile-at-save nil)
