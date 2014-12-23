@@ -10,6 +10,7 @@ plugins=(brew bundler gem git github heroku osx rails ruby)
 
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="mvim"
+export JRUBY_OPTS="--dev"
 export JAVA_OPTS="-Djava.awt.headless=true"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
