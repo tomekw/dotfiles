@@ -147,6 +147,7 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "s-r") 'query-replace)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
