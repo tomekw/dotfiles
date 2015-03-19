@@ -25,6 +25,7 @@
         projectile-rails
         rainbow-delimiters
         rspec-mode
+        ruby-hash-syntax
         ruby-mode
         smartparens
         sane-term
