@@ -101,9 +101,9 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; red line after 80 characters
-(add-hook 'after-change-major-mode-hook 'fci-mode)
-(setq fci-rule-column 80)
-(setq fci-rule-color "red")
+;; (add-hook 'after-change-major-mode-hook 'fci-mode)
+;; (setq fci-rule-column 80)
+;; (setq fci-rule-color "red")
 
 ;; scss-mode
 (setq scss-compile-at-save nil)
