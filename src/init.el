@@ -10,6 +10,8 @@
         cider
         clojure-mode
         company
+        evil
+        evil-leader
         fill-column-indicator
         go-mode
         helm
@@ -51,6 +53,11 @@
 
 ;; autocomplete
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; evil
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+(evil-mode 1)
 
 ;; go-mode
 (add-hook 'go-mode-hook
