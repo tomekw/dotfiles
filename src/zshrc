@@ -4,7 +4,7 @@ ZSH_THEME="clean"
 export GOROOT=$(go env GOROOT)
 export GOPATH=$HOME/depot/go
 
-export PATH=/usr/local/share/npm/bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$GOROOT:$PATH
+export PATH=/opt/gnat/bin:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$GOROOT:$PATH
 
 plugins=(brew bundler gem git github heroku osx rails ruby)
 
