@@ -18,7 +18,6 @@
         helm-ag
         helm-projectile
         highlight-parentheses
-        js2-mode
         magit
         markdown-mode
         monokai-theme
@@ -87,9 +86,6 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
-;; js2-mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
@@ -130,6 +126,7 @@
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 
 ;; various
 (load-theme 'monokai t)
