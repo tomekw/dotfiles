@@ -25,6 +25,7 @@
         projectile
         projectile-rails
         rainbow-delimiters
+        rbenv
         rspec-mode
         ruby-hash-syntax
         ruby-mode
@@ -102,6 +103,10 @@
 
 ;; rainbow-delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; rbenv
+(setq rbenv-installation-dir (concat (getenv "HOME") "/.rbenv"))
+(global-rbenv-mode)
 
 ;; red line after 80 characters
 ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
