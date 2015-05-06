@@ -15,6 +15,10 @@ Kropka::Recipe.new do
     name "#{ENV["HOME"]}/.lein"
   end
 
+  directory do
+    name "#{ENV["HOME"]}/.iterm2"
+  end
+
   file do
     source "src/emacs"
     target "#{ENV["HOME"]}/bin/emacs"
@@ -73,5 +77,10 @@ Kropka::Recipe.new do
   file do
     source "src/lein_profiles.clj"
     target "#{ENV["HOME"]}/.lein/profiles.clj"
+  end
+
+  file do
+    source "src/iterm2.plist"
+    target "#{ENV["HOME"]}/.iterm2/com.googlecode.iterm2.plist"
   end
 end
