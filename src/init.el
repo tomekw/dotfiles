@@ -12,6 +12,7 @@
         company
         evil
         evil-leader
+        farmhouse-theme
         fill-column-indicator
         go-mode
         helm
@@ -134,7 +135,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 
 ;; various
-(load-theme 'monokai t)
+(load-theme 'farmhouse-dark t)
 (set-frame-font "Monaco 12")
 
 (setq initial-scratch-message nil)
