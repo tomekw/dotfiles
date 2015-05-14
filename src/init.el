@@ -5,138 +5,21 @@
                          ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 
-(setq package-list
-      '(ag
-        cider
-        clojure-mode
-        company
-        evil
-        evil-leader
-        farmhouse-theme
-        fill-column-indicator
-        go-mode
-        helm
-        helm-ag
-        helm-projectile
-        highlight-parentheses
-        magit
-        markdown-mode
-        monokai-theme
-        neotree
-        projectile
-        projectile-rails
-        rainbow-delimiters
-        rbenv
-        rspec-mode
-        ruby-hash-syntax
-        ruby-mode
-        smartparens
-        sane-term
-        scss-mode
-        web-mode
-        whitespace-cleanup-mode))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-refresh-contents)
-    (package-install package)))
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
-;; env variables
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
   (setenv "PATH" path)
   (setq exec-path
         (append
          (split-string-and-unquote path ":")
          exec-path)))
-
-;; ag
-(setq ag-highlight-search t)
-
-;; autocomplete
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; evil
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(evil-mode 1)
-
-;; go-mode
-(add-hook 'go-mode-hook
-          (lambda ()
-            (setenv "PATH" (concat "/user/local/opt/go/libexec/bin:" (getenv "HOME") "/depot/go:" (getenv "PATH")))
-            (setenv "GOPATH" (concat (getenv "HOME") "/depot/go"))
-            (push (concat (getenv "GOPATH") "/bin") exec-path)
-            (setq gofmt-command "goimports")
-            (add-hook 'before-save-hook 'gofmt-before-save)
-            (setq tab-width 2)
-            (setq indent-tabs-mode 1)
-            (set (make-local-variable 'compile-command)
-                 "go vet && go test -cover -v && go build -v")))
-
-;; helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-(helm-mode 1)
-(defun projectile-helm-ag ()
-  (interactive)
-  (helm-ag (projectile-project-root)))
-(defalias 'ag 'projectile-helm-ag)
-
-;; highlight-parentheses
-(define-globalized-minor-mode global-highlight-parentheses-mode
-  highlight-parentheses-mode
-  (lambda ()
-    (highlight-parentheses-mode t)))
-(global-highlight-parentheses-mode t)
-
-;; magit
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; neotree
-(global-set-key (kbd "M-n") 'neotree-toggle)
-
-;; projectile
-(setq inhibit-startup-screen t)
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
-(require 'helm-projectile)
-(helm-projectile-on)
-
-;; rainbow-delimiters
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-;; rbenv
-(setq rbenv-installation-dir (concat (getenv "HOME") "/.rbenv"))
-(global-rbenv-mode)
-
-;; red line after 80 characters
-;; (add-hook 'after-change-major-mode-hook 'fci-mode)
-;; (setq fci-rule-column 80)
-;; (setq fci-rule-color "red")
-
-;; scss-mode
-(setq scss-compile-at-save nil)
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-
-;; smartparens
-(smartparens-global-mode t)
-(show-smartparens-global-mode t)
-(require 'smartparens-config)
-
-;; terminal support
-(setq sane-term-shell-command "/usr/local/bin/zsh")
-(global-set-key (kbd "M-t") 'sane-term)
-
-;; web-mode
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-
-;; various
-(load-theme 'farmhouse-dark t)
-(set-frame-font "Monaco 12")
 
 (setq initial-scratch-message nil)
 (setq make-backup-files nil)
@@ -151,7 +34,6 @@
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
-(global-whitespace-cleanup-mode t)
 
 (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -161,14 +43,120 @@
 (global-set-key (kbd "s-r") 'query-replace)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(custom-set-faces)
+
+(use-package cider
+  :ensure t)
+
+(use-package clojure-mode
+  :ensure t)
+
+(use-package company
+  :ensure t
+  :diminish company-mode
+  :init (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package evil-leader
+  :ensure t
+  :init (global-evil-leader-mode)
+  (evil-leader/set-leader ","))
+
+(use-package evil
+  :ensure t
+  :init (evil-mode 1))
+
+(use-package farmhouse-theme
+  :ensure t
+  :init (load-theme 'farmhouse-dark t)
+  (set-frame-font "Monaco 12"))
+
+(use-package helm
+  :ensure t
+  :diminish helm-mode
+  :init (helm-mode 1)
+  :bind ("M-x" . helm-M-x))
+
+(use-package helm-ag
+  :ensure t
+  :init (defalias 'ag 'projectile-helm-ag))
+
+(use-package helm-projectile
+  :ensure t
+  :init (defun projectile-helm-ag ()
+          (interactive)
+          (helm-ag (projectile-project-root))))
+
+(use-package highlight-parentheses
+  :ensure t
+  :init (define-globalized-minor-mode global-highlight-parentheses-mode
+          highlight-parentheses-mode
+          (lambda ()
+            (highlight-parentheses-mode t)))
+  (global-highlight-parentheses-mode t))
+
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+
+(use-package markdown-mode
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+
+(use-package projectile
+  :ensure t
+  :diminish projectile-mode
+  :init (setq inhibit-startup-screen t)
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (require 'helm-projectile)
+  (helm-projectile-on))
+
+(use-package projectile-rails
+  :ensure t
+  :init (add-hook 'projectile-mode-hook 'projectile-rails-on))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package rbenv
+  :ensure t
+  :init (rbenv-use-corresponding))
+
+(use-package rspec-mode
+  :ensure t)
+
+(use-package ruby-hash-syntax
+  :ensure t)
+
+(use-package ruby-mode
+  :ensure t)
+
+(use-package sane-term
+  :ensure t
+  :init (setq sane-term-shell-command "/usr/local/bin/zsh")
+  :bind ("M-t" . sane-term))
+
+(use-package scss-mode
+  :ensure t
+  :init (setq scss-compile-at-save nil)
+  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode)))
+
+(use-package smartparens
+  :ensure t
+  :init (smartparens-global-mode t)
+  (show-smartparens-global-mode t)
+  (require 'smartparens-config))
+
+(use-package web-mode
+  :ensure t
+  :init (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)))
+
+(use-package whitespace-cleanup-mode
+  :ensure t
+  :init (global-whitespace-cleanup-mode t))
