@@ -125,6 +125,11 @@
   :ensure t
   :init (rbenv-use-corresponding))
 
+(use-package recentf
+  :ensure t
+  :init (recentf-mode 1)
+  :bind ("C-x C-r" . helm-recentf))
+
 (use-package rspec-mode
   :ensure t)
 
