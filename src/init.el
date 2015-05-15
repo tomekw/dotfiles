@@ -36,12 +36,12 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
-(global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen)
-(global-set-key (kbd "C-x <up>") 'windmove-up)
-(global-set-key (kbd "C-x <down>") 'windmove-down)
-(global-set-key (kbd "C-x <left>") 'windmove-left)
-(global-set-key (kbd "C-x <right>") 'windmove-right)
-(global-set-key (kbd "s-r") 'query-replace)
+(bind-key "C-M-f" 'toggle-frame-fullscreen)
+(bind-key "C-x <up>" 'windmove-up)
+(bind-key "C-x <down>" 'windmove-down)
+(bind-key "C-x <left>" 'windmove-left)
+(bind-key "C-x <right>" 'windmove-right)
+(bind-key "s-r" 'query-replace)
 
 (custom-set-variables
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
