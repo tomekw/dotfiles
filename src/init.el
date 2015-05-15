@@ -128,7 +128,9 @@
 
 (use-package recentf
   :ensure t
-  :init (recentf-mode 1)
+  :init (progn (recentf-mode 1)
+               (add-to-list 'recentf-exclude ".git")
+               (add-to-list 'recentf-exclude "elpa"))
   :bind ("C-x C-r" . helm-recentf))
 
 (use-package rspec-mode
