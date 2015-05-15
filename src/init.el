@@ -60,17 +60,17 @@
 
 (use-package evil-leader
   :ensure t
-  :init (global-evil-leader-mode)
-  (evil-leader/set-leader ","))
+  :init (progn (global-evil-leader-mode)
+               (evil-leader/set-leader ","))
 
-(use-package evil
-  :ensure t
-  :init (evil-mode 1))
+  (use-package evil
+    :ensure t
+    :init (evil-mode 1)))
 
 (use-package farmhouse-theme
   :ensure t
-  :init (load-theme 'farmhouse-dark t)
-  (set-frame-font "Monaco 12"))
+  :init (progn (load-theme 'farmhouse-dark t)
+               (set-frame-font "Monaco 12")))
 
 (use-package helm
   :ensure t
@@ -90,11 +90,11 @@
 
 (use-package highlight-parentheses
   :ensure t
-  :init (define-globalized-minor-mode global-highlight-parentheses-mode
-          highlight-parentheses-mode
-          (lambda ()
-            (highlight-parentheses-mode t)))
-  (global-highlight-parentheses-mode t))
+  :init (progn (define-globalized-minor-mode global-highlight-parentheses-mode
+                 highlight-parentheses-mode
+                 (lambda ()
+                   (highlight-parentheses-mode t)))
+               (global-highlight-parentheses-mode t)))
 
 (use-package magit
   :ensure t
@@ -107,11 +107,11 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :init (setq inhibit-startup-screen t)
-  (projectile-global-mode)
-  (setq projectile-completion-system 'helm)
-  (require 'helm-projectile)
-  (helm-projectile-on))
+  :init (progn (setq inhibit-startup-screen t)
+               (projectile-global-mode)
+               (setq projectile-completion-system 'helm)
+               (require 'helm-projectile)
+               (helm-projectile-on)))
 
 (use-package projectile-rails
   :ensure t
@@ -146,22 +146,22 @@
 
 (use-package scss-mode
   :ensure t
-  :init (setq scss-compile-at-save nil)
-  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode)))
+  :init (progn (setq scss-compile-at-save nil)
+               (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))))
 
 (use-package smartparens
   :ensure t
-  :init (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-  (require 'smartparens-config))
+  :init (progn (smartparens-global-mode t)
+               (show-smartparens-global-mode t)
+               (require 'smartparens-config)))
 
 (use-package web-mode
   :ensure t
-  :init (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)))
+  :init (progn (setq web-mode-markup-indent-offset 2)
+               (setq web-mode-css-indent-offset 2)
+               (setq web-mode-code-indent-offset 2)
+               (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+               (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))))
 
 (use-package whitespace-cleanup-mode
   :ensure t
