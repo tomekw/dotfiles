@@ -42,6 +42,7 @@
 (bind-key "C-x <left>" 'windmove-left)
 (bind-key "C-x <right>" 'windmove-right)
 (bind-key "s-r" 'query-replace)
+(bind-key "<tab>" 'dabbrev-expand)
 
 (custom-set-variables
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
@@ -61,11 +62,11 @@
 (use-package evil-leader
   :ensure t
   :init (progn (global-evil-leader-mode)
-               (evil-leader/set-leader ","))
+               (evil-leader/set-leader ",")))
 
-  (use-package evil
-    :ensure t
-    :init (evil-mode 1)))
+(use-package evil
+  :ensure t
+  :init (evil-mode 1))
 
 (use-package farmhouse-theme
   :ensure t
