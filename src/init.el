@@ -31,6 +31,7 @@
 (scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
+(set-fringe-mode '(0 . 0))
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
