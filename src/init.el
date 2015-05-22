@@ -42,7 +42,7 @@
 (bind-key "C-x <left>" 'windmove-left)
 (bind-key "C-x <right>" 'windmove-right)
 (bind-key "s-r" 'query-replace)
-(bind-key "<tab>" 'dabbrev-expand)
+(bind-key "<s-tab>" 'dabbrev-expand)
 
 (custom-set-variables
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
