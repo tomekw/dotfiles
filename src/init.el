@@ -140,7 +140,8 @@
   :ensure t)
 
 (use-package ruby-mode
-  :ensure t)
+  :ensure t
+  :init (setq ruby-insert-encoding-magic-comment nil))
 
 (use-package sane-term
   :ensure t
