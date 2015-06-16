@@ -35,6 +35,7 @@
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
+(setq require-final-newline t)
 
 (bind-key "C-M-f" 'toggle-frame-fullscreen)
 (bind-key "C-x <up>" 'windmove-up)
