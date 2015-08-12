@@ -119,6 +119,9 @@
   :ensure t
   :init (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
+(use-package puppet-mode
+  :ensure t)
+
 (use-package rainbow-delimiters
   :ensure t
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
