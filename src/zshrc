@@ -31,5 +31,3 @@ function hp { h $argv production }
 function hs { h $argv staging }
 
 alias emacs='~/bin/emacs &'
-
-if which cotd > /dev/null; then cotd; fi
