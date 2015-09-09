@@ -69,6 +69,11 @@
   :ensure t
   :init (evil-mode 1))
 
+(use-package farmhouse-theme
+  :ensure t
+  :init (progn (load-theme 'farmhouse-dark t)
+               (set-frame-font "Monaco 12")))
+
 (use-package helm
   :ensure t
   :diminish helm-mode
@@ -100,11 +105,6 @@
 (use-package markdown-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
-
-(use-package monokai-theme
-  :ensure t
-  :init (progn (load-theme 'monokai t)
-               (set-frame-font "Monaco 12")))
 
 (use-package projectile
   :ensure t
