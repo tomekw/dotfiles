@@ -49,6 +49,9 @@
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces)
 
+(use-package alchemist
+  :ensure t)
+
 (use-package cider
   :ensure t)
 
@@ -59,6 +62,15 @@
   :ensure t
   :diminish company-mode
   :init (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package elixir-mode
+  :ensure t
+  :config (defun auto-activate-ruby-end-mode-for-elixir-mode ()
+            (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
+                 "\\(?:^\\|\\s-+\\)\\(?:do\\)")
+            (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
+            (ruby-end-mode +1))
+  :init (add-hook 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode))
 
 (use-package evil-leader
   :ensure t
@@ -138,6 +150,9 @@
   :bind ("C-x C-r" . helm-recentf))
 
 (use-package rspec-mode
+  :ensure t)
+
+(use-package ruby-end
   :ensure t)
 
 (use-package ruby-hash-syntax
