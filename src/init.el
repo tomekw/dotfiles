@@ -65,13 +65,7 @@
   :init (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package elixir-mode
-  :ensure t
-  :config (defun auto-activate-ruby-end-mode-for-elixir-mode ()
-            (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-                 "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-            (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-            (ruby-end-mode +1))
-  :init (add-hook 'elixir-mode-hook 'auto-activate-ruby-end-mode-for-elixir-mode))
+  :ensure t)
 
 (use-package evil-leader
   :ensure t
@@ -153,9 +147,6 @@
 (use-package rspec-mode
   :ensure t)
 
-(use-package ruby-end
-  :ensure t)
-
 (use-package ruby-hash-syntax
   :ensure t)
 
@@ -177,7 +168,15 @@
   :ensure t
   :init (progn (smartparens-global-mode t)
                (show-smartparens-global-mode t)
-               (require 'smartparens-config)))
+               (require 'smartparens-config)
+               (sp-with-modes '(elixir-mode)
+                 (sp-local-pair "fn" "end"
+                                :when '(("SPC" "RET"))
+                                :actions '(insert navigate))
+                 (sp-local-pair "do" "end"
+                                :when '(("SPC" "RET"))
+                                :post-handlers '(sp-ruby-def-post-handler)
+                                :actions '(insert navigate)))))
 
 (use-package web-mode
   :ensure t
