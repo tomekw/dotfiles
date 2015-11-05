@@ -48,7 +48,8 @@
 
 (custom-set-variables
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
-(custom-set-faces)
+(custom-set-faces
+ '(font-lock-type-face ((t (:foreground "turquoise3")))))
 
 (use-package alchemist
   :ensure t)
