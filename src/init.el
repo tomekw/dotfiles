@@ -136,7 +136,8 @@
 
 (use-package rbenv
   :ensure t
-  :init (rbenv-use-corresponding))
+  :init (progn (setq rbenv-show-active-ruby-in-modeline nil)
+               (global-rbenv-mode)))
 
 (use-package recentf
   :ensure t
