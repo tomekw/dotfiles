@@ -78,7 +78,8 @@
 (use-package helm
   :diminish helm-mode
   :init (helm-mode 1)
-  :bind ("M-x" . helm-M-x))
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)))
 
 (use-package helm-ag
   :init (defalias 'ag 'projectile-helm-ag))
