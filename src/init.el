@@ -96,6 +96,9 @@
                    (highlight-parentheses-mode t)))
                (global-highlight-parentheses-mode t)))
 
+(use-package inf-ruby
+  :init (add-hook 'after-init-hook 'inf-ruby-switch-setup))
+
 (use-package magit
   :bind ("C-x g" . magit-status))
 
