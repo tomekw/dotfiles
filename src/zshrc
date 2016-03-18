@@ -1,15 +1,12 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="muse"
+ZSH_THEME="clean"
 
-export GOROOT=$(go env GOROOT)
-export GOPATH=$HOME/depot/go
-
-export PATH=/opt/gnat/bin:/usr/local/sbin:/usr/local/bin:$GOPATH/bin:$GOROOT:$PATH
+export PATH=/opt/gnat/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 plugins=(brew bundler gem git github heroku osx rails ruby)
 
 export ARCHFLAGS="-arch x86_64"
-export EDITOR="mvim"
+export EDITOR="vim"
 export JRUBY_OPTS="--dev"
 export JAVA_OPTS="-Djava.awt.headless=true"
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -20,6 +17,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+if which docker-machine > /dev/null; then eval "$(docker-machine env default)"; fi
 
 # Find in files, usage: fif PATH STRING
 function fif() {
