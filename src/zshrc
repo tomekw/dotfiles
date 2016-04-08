@@ -29,3 +29,5 @@ function hp { h $argv production }
 function hs { h $argv staging }
 
 alias emacs='~/bin/emacs &'
+alias dc='docker-compose'
+alias dcr='dc run --rm app'
