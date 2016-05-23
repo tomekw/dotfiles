@@ -17,7 +17,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
-if which docker-machine > /dev/null; then eval "$(docker-machine env default)"; fi
 
 # Find in files, usage: fif PATH STRING
 function fif() {
