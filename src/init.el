@@ -31,6 +31,7 @@
 (scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (set-fringe-mode '(0 . 0))
 (setq-default indent-tabs-mode nil)
 (setq mac-option-modifier 'super)
@@ -85,8 +86,7 @@
   :init (evil-mode 1))
 
 (use-package farmhouse-theme
-  :init (progn (load-theme 'farmhouse-dark t)
-               (set-frame-font "Monaco 12")))
+  :init (progn (load-theme 'farmhouse-dark t)))
 
 (use-package helm
   :diminish helm-mode

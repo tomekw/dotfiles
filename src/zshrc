@@ -1,21 +1,16 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="clean"
 
-export PATH=/opt/gnat/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-plugins=(brew bundler gem git github heroku osx rails ruby)
+plugins=(git github)
 
-export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
-export JRUBY_OPTS="--dev"
-export JAVA_OPTS="-Djava.awt.headless=true"
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 source $ZSH/oh-my-zsh.sh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # Find in files, usage: fif PATH STRING
@@ -27,6 +22,5 @@ function h { heroku $argv[0,-2] --app $argv[-1] }
 function hp { h $argv production }
 function hs { h $argv staging }
 
-alias emacs='~/bin/emacs &'
 alias dc='docker-compose'
 alias dcr='dc run --rm app'
