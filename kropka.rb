@@ -19,6 +19,19 @@ Kropka::Recipe.new do
     name "#{ENV["HOME"]}/.iterm2"
   end
 
+  directory do
+    name "#{ENV["HOME"]}/.sbt"
+  end
+
+  directory do
+    name "#{ENV["HOME"]}/.sbt/0.13"
+  end
+
+  file do
+    source "global.sbt"
+    target "#{ENV["HOME"]}/.sbt/0.13/global.sbt"
+  end
+
   file do
     source "src/emacs"
     target "#{ENV["HOME"]}/bin/emacs"
