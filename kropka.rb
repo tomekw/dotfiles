@@ -27,9 +27,18 @@ Kropka::Recipe.new do
     name "#{ENV["HOME"]}/.sbt/0.13"
   end
 
+  directory do
+    name "#{ENV["HOME"]}/.sbt/0.13/plugins"
+  end
+
   file do
     source "global.sbt"
     target "#{ENV["HOME"]}/.sbt/0.13/global.sbt"
+  end
+
+  file do
+    source "plugins.sbt"
+    target "#{ENV["HOME"]}/.sbt/0.13/plugins/plugins.sbt"
   end
 
   file do
