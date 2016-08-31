@@ -64,6 +64,8 @@
 
 (use-package elixir-mode)
 
+(use-package ensime)
+
 (use-package evil-leader
   :init (progn (global-evil-leader-mode)
                (evil-leader/set-leader ",")))
@@ -141,6 +143,19 @@
 (use-package sane-term
   :init (setq sane-term-shell-command "/usr/local/bin/zsh")
   :bind ("M-t" . sane-term))
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
+
+(use-package scala-mode
+  :interpreter ("scala" . scala-mode))
 
 (use-package scss-mode
   :init (progn (setq scss-compile-at-save nil)
