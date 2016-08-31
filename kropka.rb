@@ -32,12 +32,12 @@ Kropka::Recipe.new do
   end
 
   file do
-    source "global.sbt"
+    source "src/global.sbt"
     target "#{ENV["HOME"]}/.sbt/0.13/global.sbt"
   end
 
   file do
-    source "plugins.sbt"
+    source "src/plugins.sbt"
     target "#{ENV["HOME"]}/.sbt/0.13/plugins/plugins.sbt"
   end
 
