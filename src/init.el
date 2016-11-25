@@ -48,8 +48,19 @@
 (bind-key "<s-tab>" 'dabbrev-expand)
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yaml-tomato whitespace-cleanup-mode web-mode use-package smartparens scss-mode sane-term ruby-hash-syntax rspec-mode rbenv rainbow-delimiters puppet-mode projectile-rails markdown-mode magit highlight-parentheses helm-projectile helm-ag farmhouse-theme evil-leader ensime cider alchemist)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(font-lock-type-face ((t (:foreground "turquoise3")))))
 
 (use-package alchemist)
@@ -116,7 +127,7 @@
                (helm-projectile-on)))
 
 (use-package projectile-rails
-  :init (add-hook 'projectile-mode-hook 'projectile-rails-on))
+  :init (projectile-rails-global-mode))
 
 (use-package puppet-mode)
 
