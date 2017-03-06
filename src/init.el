@@ -88,6 +88,8 @@
   :init (progn (load-theme 'farmhouse-dark t)
                (set-frame-font "Monaco 12")))
 
+(use-package go-mode)
+
 (use-package helm
   :diminish helm-mode
   :init (helm-mode 1)
