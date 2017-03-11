@@ -54,7 +54,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-tomato whitespace-cleanup-mode web-mode use-package smartparens scss-mode sane-term ruby-hash-syntax rspec-mode rbenv rainbow-delimiters puppet-mode projectile-rails markdown-mode magit highlight-parentheses helm-projectile helm-ag farmhouse-theme evil-leader ensime cider alchemist)))
+    (go-mode inf-ruby helm yaml-tomato whitespace-cleanup-mode web-mode use-package smartparens scss-mode sane-term ruby-hash-syntax rspec-mode rbenv rainbow-delimiters puppet-mode projectile-rails markdown-mode magit highlight-parentheses helm-projectile helm-ag farmhouse-theme evil-leader ensime cider alchemist)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -88,7 +88,8 @@
   :init (progn (load-theme 'farmhouse-dark t)
                (set-frame-font "Monaco 12")))
 
-(use-package go-mode)
+(use-package go-mode
+  :init (setq default-tab-width 2))
 
 (use-package helm
   :diminish helm-mode
