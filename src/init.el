@@ -89,7 +89,8 @@
                (set-frame-font "Monaco 12")))
 
 (use-package go-mode
-  :init (setq default-tab-width 2))
+  :init (progn (setq default-tab-width 2)
+               (add-hook 'before-save-hook #'gofmt-before-save)))
 
 (use-package helm
   :diminish helm-mode
