@@ -54,7 +54,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-mode inf-ruby helm yaml-tomato whitespace-cleanup-mode web-mode use-package smartparens scss-mode sane-term ruby-hash-syntax rspec-mode rbenv rainbow-delimiters puppet-mode projectile-rails markdown-mode magit highlight-parentheses helm-projectile helm-ag farmhouse-theme evil-leader ensime cider alchemist)))
+    (racer flycheck-rust go-mode inf-ruby helm yaml-tomato whitespace-cleanup-mode web-mode use-package smartparens scss-mode sane-term ruby-hash-syntax rspec-mode rbenv rainbow-delimiters puppet-mode projectile-rails markdown-mode magit highlight-parentheses helm-projectile helm-ag farmhouse-theme evil-leader ensime cider alchemist)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -64,6 +64,9 @@
  '(font-lock-type-face ((t (:foreground "turquoise3")))))
 
 (use-package alchemist)
+
+(use-package cargo
+  :init (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
 (use-package cider)
 
@@ -87,6 +90,12 @@
 (use-package farmhouse-theme
   :init (progn (load-theme 'farmhouse-dark t)
                (set-frame-font "Monaco 12")))
+
+(use-package flycheck
+  :init (global-flycheck-mode))
+
+(use-package flycheck-rust
+  :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (use-package go-mode
   :init (progn (setq default-tab-width 2)
@@ -142,6 +151,14 @@
   :init (progn (setq rbenv-show-active-ruby-in-modeline nil)
                (global-rbenv-mode)))
 
+(use-package racer
+  :init (progn (setq racer-rust-src-path (concat (getenv "HOME") "/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
+               (add-hook 'rust-mode-hook #'racer-mode)
+               (add-hook 'racer-mode-hook #'eldoc-mode)
+               (add-hook 'racer-mode-hook #'company-mode)
+               (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+               (setq company-tooltip-align-annotations t)))
+
 (use-package recentf
   :init (progn (recentf-mode 1)
                (add-to-list 'recentf-exclude ".git")
@@ -154,6 +171,9 @@
 
 (use-package ruby-mode
   :init (setq ruby-insert-encoding-magic-comment nil))
+
+(use-package rust-mode
+  :init (setq rust-format-on-save t))
 
 (use-package sane-term
   :init (setq sane-term-shell-command "/usr/local/bin/zsh")
